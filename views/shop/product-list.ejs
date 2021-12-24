@@ -1,0 +1,117 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/fdba8ed509.js" crossorigin="anonymous"></script>
+</head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>  
+                
+                    <div class="mainDiv">
+                        <% if (prods.length > 0) { %>
+                            <div class="searchHeader">
+                                <form action="/getProductWithDate" method="GET">
+                                    <div class="searchbar row">
+                                        <div class="col-md-2">
+                                            <h6>Custom Search</h6>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>From</label>
+                                            <input type="Date" name="fromDate">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>To</label>
+                                            <input type="Date" name="toDate">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type ="submit"  >Search</button>
+                                            
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        
+                        
+                        
+                    
+                        
+                            <% for (let product of prods) { %>
+                                <article class="card product-item">
+                                    <!-- <header class="card__header">
+                                       
+                                    </header> -->
+                                    <div class="card__content" style="background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);border-radius: 10px;padding:0.3rem;margin-bottom: 0.5rem;">
+                                        <!-- <h2 class="product__price">$
+                                            <%= product.price %>
+                                        </h2> -->
+                                        <!-- <p class="product__description">
+                                            <%= product.description %>
+                                        </p> -->
+                                        <h4 class="product__title" style="font-size: 1rem;">
+                                            <%= product.title %>
+                                        </h4>
+                                    </div>
+                                    <div class="card__image">
+                                        <img style="object-fit:contain;" src="/<%= product.imageUrl %>" alt="<%= product.title %>">
+                                    </div>
+                                    
+                                    
+                                    <div class="placeDate row">
+                                        <div class="col-md-9 dateFlex">
+                                            <div class="col-md-3" style="display: inline;padding: 0;">
+                                                <h2 style="text-align: right;"><%= product.day %></h2>
+                                                
+                                            </div>
+                                            <div class="col-md-9" style="display: inline;font-style: italic;">
+                                                <h6 style="font-size: 1rem;font-weight: 600;"><%= product.month%> <%= product.year%></h6>
+                                                <h6 style="font-size: 0.9rem;"><%= product.place %></h6>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="col-md-3 card__actions" style="padding:0.5rem 15px;">
+                                            <div style="width:100%;margin:0 auto;">
+                                                <a href="/products/<%= product._id %>"  class="btn" style="font-weight: 600;">Details</a>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                   
+                                    <div class="emotions">
+                                        
+                                        <input type="hidden" name="productId" value="<%= product._id %>">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <button type="submit" name="love" onclick="changeBackground(this)" style="border:none;background-color: transparent;"><i <% if (product.love) { %> style="color:red;" <% } else { %> '' <% } %> class="fas fa-heart"></i></button>
+                                            
+                                       
+                                            
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <button type="submit" name="angry" onclick="changeBackground(this)" style="border:none;background-color: transparent;"><i <% if (product.angry) { %> style="color:black;" <% } else { %> '' <% } %> class="fas fa-frown-open"></i></button>
+                                        
+                                            
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <button type="submit" name="like" onclick="changeBackground(this)" style="border:none;background-color: transparent;"><i <% if (product.like) { %> style="color:#4267b2;" <% } else { %> '' <% } %> class="fas fa-thumbs-up"></i></button>
+                    
+                                        
+                                    
+                                    
+                                    </div>
+                                    
+                                    
+                                </article>
+                                <% } %>
+                        
+                        <!-- <%- include('../includes/pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %> -->
+                        <% } else { %>
+                            <h2>No Products Found!</h2>
+                            <% } %>
+                    </div>
+                    
+            </main>
+            <%- include('../includes/end.ejs') %>
+            <script src="/js/admin.js"></script>

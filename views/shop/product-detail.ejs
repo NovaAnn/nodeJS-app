@@ -1,0 +1,147 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/productDetail.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <div class="backdrop2">
+            <div class="modal1">
+              <form action="/admin/edit-product" method="POST" enctype="multipart/form-data">
+                <div style="width:100%;font-size: 1.4rem;font-weight: 700;margin-bottom:1rem;padding:1rem 0;border-bottom: 4px solid yellow;color:#4267b2;letter-spacing: 2px;">EDIT POST</div>
+                <div class="form-group">
+                 <label for="title">Title</label>
+                 <input 
+                     class="form-control <%= validationErrors.find(e => e.param === 'title') ? ' invalid' : '' %>"
+                     type="text" 
+                     name="title" 
+                     id="title" 
+                     aria-describedby="titleHelp"
+                     placeholder="Title of your diary post"
+                     value = "<%= product.title %>"
+                     >
+                     </div>
+                     <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="place">Place</label>
+                        <input type="text" class=" form-control <%= validationErrors.find(e => e.param === 'place') ? ' invalid' : '' %>" id="place" placeholder="Place"
+                        name="place" 
+                          id="place" 
+                          step="0.01"
+                          value = "<%= product.place %>" >
+                          
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="date" placeholder="Date" name="date"
+                        value = "<%= product.date.toISOString().substring(0,10) %>"
+                        >
+                      </div>
+                    </div>
+                    
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea 
+                    class="form-control <%= validationErrors.find(e => e.param === 'description') ? ' invalid' : '' %>"
+                    name="description" 
+                    id="description" 
+                    aria-label="With textarea"
+                    rows="3"><%= product.description %></textarea>
+            </div>
+            <label>Pic of the day</label>
+                <input style="display: block; border: 1px solid grey;"
+                    type="file" 
+                    name="image" 
+                    id="image" 
+                    value = "<%= product.imageUrl.substring(7) %>">
+            
+            
+           
+             <input type="hidden" name="productId" value="<%= product._id %>">    
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            
+            <button class="btn btn-primary" style="margin-top: 1rem;background-color: #1e3c79;border-radius: 0%;" type="submit"  ><% if (editing) { %>UPDATE<% } else { %>Add Product<% } %></button>
+            <button "type="button" class="btn btn-danger" style="margin-top: 1rem;border-radius: 0%;background-color: transparent;color: red;border: none;font-weight: 600;" onclick="closeOverlay2(this)" >CLOSE</button>    
+          </form>
+             </div>
+            </div>
+        <div class="backdrop1"><div style="width:80%;height:auto;margin:5rem auto;position: relative;">
+            <div class="closeDiv" onclick="closeoverlay(this)">
+                <img style="width:100%;" src="https://cdn-icons-png.flaticon.com/512/660/660252.png">
+            </div>
+            <img style="width:100%;" src="/<%= product.imageUrl %>">
+        </div>
+            </div>
+        <main >
+            <div class="row mainDiv">
+                <!-- <div style="text-align: center;margin:0 auto;background-color: rgb(85, 79, 79);width:100%;padding:1.5rem 0;">
+                    <h5 style="font-family: 'Lato', sans-serif; font-weight: 500;color:white;" class="centered"><%= product.title %></h5>
+                </div> -->
+                <div class="placeDate"><div style="display: inline;font-style:italic;font-weight: 600;"><span style="font-weight: 600;font-style:none;"><i style="color:yellow;" class="fas fa-map-marker-alt"></i> </span><%= product.place %></div>
+                <h4 style="font-family: 'Lato', sans-serif; font-weight: 700;color:#4267b2;display: inline;margin:0 1rem;" class="centered"><%= product.title %></h4>
+                        <div style="display: inline;font-style:italic;font-weight: 600;"><span style="font-weight: 600;font-style:none;"><i class="far fa-calendar-alt" style="color:yellow;margin-right: 0.1rem;"></i> </span> <%=  product.date.toISOString().substring(8,10) %>/<%= product.date.toISOString().substring(5,7) %>/<%= product.date.toISOString().substring(0,4) %></div>
+                        </div>
+            <div style="width:100%;" onclick="displayImage(this)"> <img style="width:100%;height: auto;" src="/<%= product.imageUrl %>" alt="<%= product.title %>"></div>
+            <div class="secDivBord">
+              
+                <p style="font-size: 1rem;margin-bottom: 1rem;padding-bottom: 1.5rem;"><%= product.description %></p></div> 
+            <div class="editOptions" onclick="displayOptions(this)" >MENU</div>
+            <div class="menu" ><ul>
+                <li style="margin: 1.5rem 0.5rem;"><button class="editBtn" type="button" onclick="displayOverlay2(this)"><i class="fas fa-edit"></i>
+                    <span>Edit</span></button></li>
+                <li style="margin: 1.5rem 0.5rem;">
+                    <form action="/delete/product/<%= product._id %>" method="POST" >
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <input type="hidden" name="productId" value="<%= product._id %>">
+                        <button class="editBtn" type="submit" style="background-color: white;" ><i class="fas fa-trash-alt"></i><span style="left:-2%;">Delete</span></button>
+                    </form>
+                </li>
+            </ul></div>
+                
+                    <!-- <div class=" col-md-6 firstDiv">
+                        <div class="firstDivs" onclick="displayImage(this)"><div class="pinDiv">
+                            <img src="https://cdn-icons-png.flaticon.com/512/73/73169.png">
+                        </div> <img src="/<%= product.imageUrl %>" alt="<%= product.title %>"></div>
+                        
+                       
+                    </div>
+                    <div class="col-md-6 secDiv">
+                        <div class="placeDate"><div style="display: inline;font-style:italic;font-weight: 600;"><span style="font-weight: 600;font-style:none;"><i style="color:rgb(44, 111, 236);" class="fas fa-map-marker-alt"></i> </span><%= product.place %></div>
+                        <div style="display: inline;font-style:italic;font-weight: 600;"><span style="font-weight: 600;font-style:none;"><i class="far fa-calendar-alt" style="color:rgb(44, 111, 236);margin-right: 0.1rem;"></i> </span> <%=  product.date.toISOString().substring(8,10) %>/<%= product.date.toISOString().substring(5,7) %>/<%= product.date.toISOString().substring(0,4) %></div>
+                        </div>
+                        <div class="secDivBord">
+                            <h5 style="font-family: 'Rouge Script', cursive; font-weight: 500;color:#082955;" class="centered"><%= product.title %></h5>
+                            <p style="font-size: 0.9rem;font-style: italic;"><%= product.description %></p></div> -->
+                            <!-- <div class="btnGrp">
+                                <a href="/admin/profile"><button class="btn btn-primary" style="margin-top: 1rem;" type="submit"  >Edit</button></a>
+                                <a href="/admin/profile"><button class="btn btn-danger" style="margin-top: 1rem;" type="submit"  >Delete</button></a>
+                    </div> -->
+                    <!-- <div class="emotions">
+                       <button class="editBtn" type="button" onclick="displayOverlay2(this)"><i class="fas fa-edit"></i>
+                        <span>Edit</span></button>
+
+                        <form action="/delete/product/<%= product._id %>" method="POST" >
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <input type="hidden" name="productId" value="<%= product._id %>">
+                            <button class="editBtn" type="submit" style="background-color: #f7ab28;" ><i class="fas fa-trash-alt"></i><span>Delete</span></button>
+                        </form>
+                            
+                    
+                    
+                    </div>
+                </div> -->
+            
+                </div>
+                
+            <!-- <h1><%= product.title %></h1>
+            <hr>
+            <div class="image">
+                <img src="/<%= product.imageUrl %>" alt="<%= product.title %>">
+            </div>
+            <h2><%= product.price %></h2>
+            <p><%= product.description %></p>
+            <% if (isAuthenticated) { %>
+                <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+            <% } %> -->
+        </main>
+        <%- include('../includes/end.ejs') %>
+        <script src="/js/admin.js"></script>

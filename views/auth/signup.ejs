@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <div style="width:55%;margin:0 auto;">
+            <div class="row">
+          
+                <div class="col-md-12">
+                    <div class="loginForm">
+                        <div class="paraForm" style="background-color: #4267b2;color:white;">Sign Up for FaceDiary for Free</div>
+                        <form action="/signup" method="POST" style="width:90%;">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Email address</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                    
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Type your password again to confirm">
+                              </div>
+        
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div style="width:40%;margin:0 auto;text-align: center;"><button type="submit" class="btn btn-primary" style="transform: none;background-color:green;">Sign Up</button> </div>
+                          </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+    </main>
+<%- include('../includes/end.ejs') %>

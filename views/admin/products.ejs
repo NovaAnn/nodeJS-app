@@ -1,0 +1,82 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/products.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <div class="backdrop1">
+          <div class="modal1">
+            <form action="/admin/edit-product" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+               <label for="title">Title</label>
+               <input 
+                   class="form-control <%= validationErrors.find(e => e.param === 'title') ? ' invalid' : '' %>"
+                   type="text" 
+                   name="title" 
+                   id="title" 
+                   aria-describedby="titleHelp"
+                   placeholder="Title of your diary post">
+                   </div>
+                   <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="place">Place</label>
+                      <input type="text" class=" form-control <%= validationErrors.find(e => e.param === 'place') ? ' invalid' : '' %>" id="place" placeholder="Place"
+                      name="place" 
+                        id="place" 
+                        step="0.01" >
+                        
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="date">Date</label>
+                      <input type="date" class="form-control" id="date" placeholder="Date" name="date"
+                      >
+                    </div>
+                  </div>
+                  
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea 
+                  class="form-control <%= validationErrors.find(e => e.param === 'description') ? ' invalid' : '' %>"
+                  name="description" 
+                  id="description" 
+                  aria-label="With textarea"
+                  rows="3"></textarea>
+          </div>
+          <label>Pic of the day</label>
+              <input style="display: block; border: 1px solid grey;"
+                  type="file" 
+                  name="image" 
+                  id="image" >
+          
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          
+          <button class="btn btn-primary" style="margin-top: 1rem;" type="submit"  >Update Product</button>
+          <button class="btn btn-danger" style="margin-top: 1rem;" type="button" onclick="closeoverlay(this)" >Close</button>    
+        </form>
+           </div>
+          </div>
+        
+
+        <main><div class="mainDiv">
+          <div class="mainPostFlex">
+            <div class="indPostFlex">
+              <div style="width:25%;height:100%;margin:0 0.5rem;border-radius: 5px;" >
+                <img style="width:100%;height:100%;border-radius: 5px;" src="https://a.cdn-hotels.com/gdcs/production81/d472/59ec724d-997f-45e7-9b13-a287f20ce32f.jpg">
+              </div>
+                <div class="innerPostFlex">
+                    <h5 style="font-family:Open Sans, Lato, sans-serif;font-weight:600;color: #ecaf3e;">My solo trip to Masinagudi</h5>
+                  
+                  <div class="innerPostFlex1">
+                    <h6 style="font-weight: 400;font-style: italic;">Place: Ootty,India</h6>
+                    <h6 style="font-weight: 400;font-style: italic;">Date: 12/4/2021</h6>
+                  </div>
+
+                </div>
+                <div class="innerPostFlexBtn"><button type="button" class="btn btn-info">Edit</button><button type="button" class="btn btn-danger">Delete</button><button type="button" class="btn btn-success" >Favorite</button></div>
+            </div>
+        </div>
+                
+        </div></main>
+
+            <%- include('../includes/end.ejs') %>
+            <script src="/js/admin.js"></script>

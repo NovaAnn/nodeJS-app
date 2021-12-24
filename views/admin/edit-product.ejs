@@ -1,0 +1,81 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <div class="backdrop1" onclick="closeoverlay(this)">
+            <div class="modal1">
+        <form action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST" enctype="multipart/form-data">
+               <div class="form-group">
+                <label for="title">Title</label>
+                <input 
+                    class=" form-control <%= validationErrors.find(e => e.param === 'title') ? ' invalid' : '' %>"
+                    type="text" 
+                    name="title" 
+                    id="title" 
+                    aria-describedby="titleHelp"
+                    placeholder="Title of your diary post"
+                    value="<% if (editing || hasError) { %><%= product.title %><% } %>">
+            </div>
+            <!-- <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'imageUrl') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="imageUrl" 
+                    id="imageUrl" 
+                    value="<% if (editing || hasError) { %><%= product.imageUrl %><% } %>">
+            </div> -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="place">Place</label>
+                  <input type="text" class=" form-control <%= validationErrors.find(e => e.param === 'price') ? ' invalid' : '' %>" id="place" placeholder="Place"
+                  name="place" 
+                    id="place" 
+                    step="0.01" >
+                    
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control" id="date" placeholder="Date" name="date"
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea 
+                    class="form-control <%= validationErrors.find(e => e.param === 'description') ? ' invalid' : '' %>"
+                    name="description" 
+                    id="description" 
+                    aria-label="With textarea"
+                    rows="3"><% if (editing || hasError) { %><%= product.description %><% } %></textarea>
+            </div>
+            
+            <!-- <div class="custom-file">
+                <label class="custom-file-label" for="image">Choose file...</label>
+                <input 
+                    type="file" 
+                    class="custom-file-input"
+                    name="image" 
+                    id="image" >
+            </div> -->
+
+               <label>Pic of the day</label>
+                <input style="display: block; border: 1px solid grey;"
+                    type="file" 
+                    name="image" 
+                    id="image" >
+            
+            
+            <% if (editing) { %>
+                <input type="hidden" value="<%= product._id %>" name="productId">
+            <% } %>
+
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            
+            <button class="btn btn-primary" style="margin-top: 1rem;" type="submit"  ><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+        </form>
+    </div>
+</div>
+<%- include('../includes/end.ejs') %>

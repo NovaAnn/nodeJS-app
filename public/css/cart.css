@@ -1,0 +1,272 @@
+.cart__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
+}
+main {
+  padding: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+  url("https://c4.wallpaperflare.com/wallpaper/755/459/786/flowers-flower-artistic-colors-wallpaper-preview.jpg");
+background-size: cover;
+width: 100%;
+height: 90vh;
+position: relative;
+}
+.sideNavbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.sideNavbar ul{
+  list-style: none;
+  padding:0;
+  margin:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.options{
+border: 0.5px solid black;
+border-left: none;
+  padding:0.4rem 0.5rem;
+  height:2.5rem;
+  width:100%;
+  white-space: nowrap;
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  color:black;
+  /* background-color: #6d6f72; */
+  /* background-color: #4267b2; */
+  /* background-color: #ffcc70; */
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+
+}
+
+.options:hover{
+  transform: scale(1.05);
+  background-color: rgb(228, 216, 55);
+
+}
+.backdrop1{
+  position: fixed;
+  display:none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+ /* opacity: 0.5; */
+ margin: 0 auto;
+
+
+}
+label{
+  font-weight: 600;
+}
+.mainSection{
+  background-image: url("https://media.istockphoto.com/photos/portrait-of-happy-woman-in-the-park-picture-id1271198248?b=1&k=20&m=1271198248&s=170667a&w=0&h=jCLEpmhPHG1OBv1oAM8wYmhqt-EUjnk7r7EKHepDano=");
+background-size: cover;
+  transition: all 800ms ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding:0;
+
+}
+.mainSection:hover{
+  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url("https://media.istockphoto.com/photos/portrait-of-happy-woman-in-the-park-picture-id1271198248?b=1&k=20&m=1271198248&s=170667a&w=0&h=jCLEpmhPHG1OBv1oAM8wYmhqt-EUjnk7r7EKHepDano=");
+background-size: cover;
+}
+.form-control {
+  margin:0.2rem 0;
+}
+.modal1 {
+  position: fixed;
+ margin: 0.5rem auto;
+  
+ 
+ left:10%;
+  width: 80%;
+  max-height: 100%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+  overflow: auto;
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activeLink{
+  /* background-color: #4267b2!important; */
+  background-color: white!important;
+}
+.firstBlock {
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
+    url("http://www.lovethispic.com/uploaded_images/134042-Think-Good-Thoughts.jpg"); */
+  background-color: white;
+
+  color: #4267b2;
+  width: 90%;
+  padding: 1rem;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  border-radius: 10px;
+  margin: 0.8rem auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.mainPostFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  border-radius: 10px;
+  width: 75%;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.innerPostFlex {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+.innerPostFlexBtn {
+  /* width: 60%; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin:0 1rem;
+  
+}
+.innerPostFlex1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.btn{
+  font-size: 1rem;
+  padding:0.5rem 1rem;
+  margin-bottom: 0.2rem;
+}
+.indPostFlex {
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-evenly;
+  background-color: white;
+  color: black;
+  align-items: center;
+  font-size: 0.5rem;
+  font-weight: 400;
+  padding: 0.5rem 0.5rem;
+  width: 100%;
+  height: 10rem;
+  margin: 0.8rem 0;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.mainHeading {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+}
+.mainHeading2 {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  /* border-radius: 20px; */
+  margin: 0.5rem 0;
+  background-color: white;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  background-color: #ffcc70;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin-bottom: 1rem;
+}
+
+.cart__item h1,
+.cart__item h2 {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.emotions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.25);
+  
+}
+.far{
+  display: inline;
+  font-size: 1.5rem;
+  margin:0 0.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+.far:hover{
+  transform: scale(1.2);
+}
+.btn-danger:hover{
+  background-color: rgb(189, 5, 5)!important;
+  color: white !important;
+}
+
+@media (min-width: 768px) {
+  .modal1 {
+    width: 60%;
+    left:20%;
+    top: 5vh;
+  }
+}

@@ -1,0 +1,317 @@
+  main{
+    min-height: 100%;
+  }
+.mainDiv{
+    width:96%;
+    /* height:100%; */
+    z-index: 100;
+    height: 100%;
+    margin:0 auto;
+    
+    display: flex;
+    flex-direction: column;
+    
+    /* border-radius: 10px; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(62, 78, 90, 0.15) 0px 1px 3px 1px;
+    background: white;  /* fallback for old browsers */
+    position: relative;
+}
+.editOptions{
+  position: absolute;
+  top:100%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:70px;
+  height:70px;
+  border-radius: 50%;
+  background-color: rgb(87, 83, 83);
+  border: 2px solid black;
+  font-weight: 700;
+  text-align: center;
+  padding:0.9rem 0;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  color: yellow;
+}
+
+.menu{
+  position: absolute;
+  top:0%;
+  left:102%;
+  max-width:5rem;
+  background-color: rgb(253, 229, 9);
+  /* border: 2px solid black; */
+  font-weight: 700;
+  text-align: center;
+  padding:0.9rem 0;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  /* color: rgb(78, 75, 75); */
+  color:black;
+  transform: translateX(-200%);
+  transition: all 0.8s linear;
+  z-index: -1;
+ 
+}
+.show{
+  transform: translateX(0%);
+  display: block;
+  transition: all 1s linear;
+}
+.menu ul{
+  list-style: none;
+  padding:0;
+  margin: 0;
+}
+
+.firstDiv{
+    
+    border-radius: 10px;
+    border-right: 3px solid black;
+   padding:0;
+    height: 23rem;
+    background-image: url("https://i.pinimg.com/474x/00/2e/2d/002e2db733195d193bec09b3b6293534.jpg");
+    background-size:cover;
+    background-repeat: repeat;
+    
+}
+.firstDivs{
+    position:relative;
+   margin: 3rem auto;
+    width:80%;
+    height:auto;
+}
+.firstDiv img{
+    position: relative;
+    text-align: center;
+    width:100%;
+    height:auto;
+    transform: rotate(-15deg);
+    z-index: 1;
+    cursor: pointer;
+}
+.firstDivs::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+    cursor: pointer;
+    opacity: 0;
+    transform: rotate(-15deg);
+    z-index: 100;
+  }
+  .firstDivs:hover::after {
+    opacity: 1;
+  }
+.pinDiv{
+    position: absolute; 
+    width:2rem;
+    height:2rem;
+    left:50%;
+    top:-15%;
+    transform: rotate(-15deg);
+    z-index: 10;
+}
+.pinDiv img{
+    width:100%;
+    height:100%;
+}
+.secDiv{
+    border-radius: 5px;
+    height: 23rem;
+    background-color:white;
+    padding:0.2rem 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    position: relative;
+    border: 1px solid black;
+}
+.secDivBord{
+
+    border-radius: 5px;
+    width:100%;
+    height: 80%;
+   padding:1rem 1rem;
+   /* background-color: #98ff98; */
+   font-family: 'Lato', sans-serif;
+}
+.btnGrp{
+    width:80%;
+    margin:0 auto;
+     display:flex;
+    justify-content: space-evenly;
+    text-align: right;
+    
+}
+
+.backdrop1{
+    position: fixed;
+    display:none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+   /* opacity: 0.5; */
+   margin: 0 auto;
+   z-index: 1000;
+  }
+  .modal1 {
+    position: fixed;
+
+    
+    left: 5%;
+   
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 30;
+    animation: slide-down 300ms ease-out forwards;
+    overflow: auto;
+  }
+  .backdrop2{
+    position: fixed;
+    display:none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+   /* opacity: 0.5; */
+   margin: 0 auto;
+   z-index: 1000;
+  }
+  .closeDiv{
+    position: absolute; 
+    width:2rem;
+    height:2rem;
+    left:100%;
+    top:-8%;
+    z-index: 10;
+    cursor: pointer;
+}
+.emotions{
+  
+  width:80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:absolute;
+    top:95%;
+    left:50%;
+    transform:translate(-50%); 
+  }
+  .placeDate{
+  padding:1rem 1rem;
+  background-color: white;
+    width:100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin:0 auto;
+      color:black;
+
+      
+    }
+  
+  
+  main{
+    margin:0;
+    padding:1.5rem;
+    padding-right: 3rem;
+    overflow: visible;
+    background-color: white;
+    z-index: -1000;
+    /* background-image: linear-gradient(
+      43deg,
+      #64a2f3 0%,
+      #ffffff 46%,
+      #f79d00 100%
+    ); */
+  }
+  @media (min-width:768px) {
+    .main{
+      padding:2.5rem;
+    }
+    
+  }
+  .editBtn{
+    position:relative ;
+    /* text-align: center; */
+    border:1px solid black;
+    transition: 0.5s; 
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(247, 230, 80); */
+    background-color:white ;
+   
+    width: 40px;
+    height:40px;
+ 
+    border-radius:50%;
+    /* text-align: center; */
+    margin:0.2rem 0;
+  }
+  .editBtn span{
+    position: absolute;
+    opacity: 0;
+    color:#4267b2;
+    font-weight: 700!important;
+    font-size: 0.8rem;
+  }
+  .menu ul{
+    padding: 0;
+  }
+  .menu ul li{
+    border-bottom: 2px solid grey;
+    margin-bottom: 0.3rem;
+  }
+  .fas{
+    display: inline;
+    font-size: 1.5rem;
+    margin:0.3rem 0.2rem; 
+    color:rgb(78, 75, 75);
+ 
+}
+
+.editBtn:hover{
+      transform: translateY(-15px);
+    }
+.editBtn:hover span{
+      transform: translateY(40px);
+      opacity:1;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    label{
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+      .mainDiv {
+        width: 50%;
+        padding:0;
+      }
+      .modal1{
+        top: 5vh;
+        width:65%;
+        height: auto;
+        margin: 0.5rem auto;
+        left: 17%;
+      }
+     
+    }
+    .btn-danger:hover{
+      background-color: rgb(189, 5, 5)!important;
+      color: white !important;
+    }

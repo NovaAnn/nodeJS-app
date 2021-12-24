@@ -1,0 +1,150 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/profile.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <div class="backdrop1" >
+          <div class="modal1">
+            <form action="/admin/save-profile" method="POST" enctype="multipart/form-data">
+              <div style="width:100%;font-size: 1.4rem;font-weight: 700;margin-bottom:1rem;padding:1rem 0;border-bottom: 4px solid yellow;color:#4267b2;letter-spacing: 2px;">EDIT PROFILE</div>
+              
+                   <div class="form-row">
+                    <div class="form-group col-md-5">
+                      <label for="name">Name</label>
+                      <input type="text" class=" form-control" id="name" placeholder="Name"
+                      name="name" 
+                        id="name" 
+                        value = "<% if (user.name) { %> <%= user.name %> <% } else { %> '' <% } %>">
+                        
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="date">Date Of Birth</label>
+                      <input type="date" class="form-control" id="date" placeholder="Date" name="date"
+                      value = "<% if (user.dateOfBirth) { %> <%= user.dateOfBirth.toISOString().substring(0,10) %> <% } else { %> '' <% } %>"> 
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-5">
+                      <label for="location">Current Location</label>
+                      <input type="text" class=" form-control" id="location" placeholder="Location"
+                      name="location" 
+                        id="location" 
+                        value = "<% if (user.location) { %> <%= user.location %> <% } else { %> '' <% } %>">
+                        
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="college">College</label>
+                      <input type="text" class=" form-control" id="college" placeholder="College Attended"
+                      name="college" 
+                        id="college" 
+                        value = "<% if (user.college) { %> <%= user.college %> <% } else { %> '' <% } %>">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-5">
+                      <label for="Position">Current Position</label>
+                      <input type="text" class=" form-control" id="position" placeholder="Current Position"
+                      name="position" 
+                        id="position" 
+                        value = "<% if (user.position) { %> <%= user.position %> <% } else { %> '' <% } %>">
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="relationship">Relationship</label>
+                      <select name="relationship" id="relationship">
+                        <option value="Single" <% if (user.relationship = 'Single') { %> selected <% } else { %> '' <% } %>>Single</option>
+                        <option value="Married" <% if (user.relationship = 'Married') { %> selected <% } else { %> '' <% } %>>Married</option>
+                        <option value="It's complicated" <% if (user.relationship = "It's complicated") { %> selected <% } else { %> '' <% } %>>It's complicated</option>
+                        <option value="In a Relationship" <% if (user.relationship = 'In a Relationship') { %> selected <% } else { %> '' <% } %>>In a Relationship</option>
+                      </select>
+                    </div>
+                    
+                  </div>
+
+                  
+                  <div class="form-group">
+                      <label for="hobbies">Hobbies</label>
+                      <input 
+                          class="form-control"
+                          type="text" 
+                          name="hobbies" 
+                          id="hobbies" 
+                          aria-describedby="hobbiesHelp"
+                          placeholder="Write down your hobbies"
+                          value = "<% if (user.hobbies) { %> <%= user.hobbies %> <% } else { %> '' <% } %>">
+                          </div>
+                          <div class="form-group">
+                            <label for="food">Favorite Food</label>
+                            <input 
+                                class="form-control"
+                                type="text" 
+                                name="favFood" 
+                                id="food" 
+                                aria-describedby="foodHelp"
+                                placeholder="Write down your favorite foods"
+                                value = "<% if (user.favFood) { %> <%= user.favFood %> <% } else { %> '' <% } %>">
+                                </div>
+                   
+
+                  
+           
+          <label>Profile Picture</label>
+              <input style="display: block; border: 1px solid grey;"
+                  type="file" 
+                  name="profImage" 
+                  id="profImage" >
+
+                  <label>Background Picture</label>
+                  <input style="display: block; border: 1px solid grey;"
+                      type="file" 
+                      name="backImage" 
+                      id="backImage" >
+          
+          
+         
+
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <a><button class="btn btn-primary" style="margin: 0.5rem;margin-left: 0; transform:translateY(10%);background-color: #1e3c79;border-radius: 0%;padding:0.6em 1.3rem;" type="submit"  >UPDATE</button></a>
+          
+          <button class="btn btn-danger" style="margin: 0.5rem; transform:translateY(10%);border-radius: 0%;padding:0.6rem 1.3rem;background-color: transparent;color: red;border: none;font-weight: 600;" type="button" onclick="closeoverlay(this)" >CLOSE</button>
+              </form>
+           </div>
+          </div>
+
+        <main>
+          <div class="mainDiv">
+            <div class="divImg">
+              <img src="/<% if (user.coverPic) { %><%= user.coverPic %> <% } else { %> '' <% } %>" alt="Edit profile now!">
+              <div class="nameCont"><% if (user.name) { %> <%= user.name %> <% } else { %> '' <% } %></div>
+          
+          <div class="btnCont"><button type="button" class="btn btn-info" style="background-color: #6489d3;" onclick="displayOverlay(this)">Edit Profile</button></div>
+        </div>
+          <div class="profPic"><img src="/<% if (user.proficPic) { %><%=user.proficPic %> <% } else { %> '' <% } %>" ></div>
+            
+            <div class="oneLiner"><% if (user.proficPic) { %> "A free bird, just free!!Love to fly high!High and higher!" <% } else { %> '' <% } %></div>
+            
+        
+            <div class="abtCont">About Me</div>
+          
+            <div class=" dtlsCont row">
+              <div class="col-md-6 boringCont">
+                <ul>
+                  <li><img style="width:1.5rem;max-height:1.5rem;object-fit: contain;margin-right: 1rem;" src="https://cdn-icons-png.flaticon.com/128/918/918234.png"><% if (user.dateOfBirth) { %> <%= user.dateOfBirth.toISOString().substring(0,10) %> <% } else { %> '' <% } %></li>
+                  <li><img style="width:1.5rem;max-height:1.5rem;object-fit: contain;margin-right: 1rem;" src="https://cdn-icons-png.flaticon.com/512/535/535239.png"><% if (user.location) { %> <%= user.location %> <% } else { %> '' <% } %></li>
+                  <li><img style="width:1.5rem;max-height:1.5rem;object-fit: contain;margin-right: 1rem;" src="https://cdn-icons-png.flaticon.com/128/2681/2681857.png"><% if (user.college) { %> <%= user.college %> <% } else { %> '' <% } %></li>
+                </ul>
+            </div>
+              <div class="col-md-6 coolCont">
+                <ul>
+                  <li><img style="width:1.5rem;max-height:1.5rem;object-fit: contain;margin-right: 1rem;" src="https://cdn-icons.flaticon.com/png/128/3242/premium/3242120.png?token=exp=1640299790~hmac=bb72dd828983c77339fdccb9081a9e9b"><% if (user.position) { %> <%= user.position %> <% } else { %> '' <% } %></li>
+                  <li><img style="width:1.5rem;max-height:1.5rem;object-fit: contain;margin-right: 1rem;" src="https://cdn-icons-png.flaticon.com/128/2909/2909896.png"><% if (user.relationship) { %> <%= user.relationship %> <% } else { %> '' <% } %></li>
+                  <li><img style="width:1.5rem;max-height:1.5rem;object-fit: contain;margin-right: 1rem;" src="https://cdn-icons-png.flaticon.com/512/1668/1668151.png"><% if (user.hobbies) { %> <%= user.hobbies %> <% } else { %> '' <% } %></li>
+                  <li><img style="width:1.5rem;max-height:1.5rem;object-fit: contain;margin-right: 1rem;" src="https://cdn-icons.flaticon.com/png/128/753/premium/753839.png?token=exp=1640299749~hmac=48e94444660c8cc9272911039fe070c5"><% if (user.favFood) { %> <%= user.favFood %> <% } else { %> '' <% } %></li>
+                </ul>
+              </div>
+                </div>   
+    </div>
+        </main>
+
+            <%- include('../includes/end.ejs') %>
+            <script src="/js/admin.js"></script>

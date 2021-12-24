@@ -1,0 +1,273 @@
+/* main{
+    background-image: linear-gradient(
+    43deg,
+    #c21500 0%,
+    #ffffff 46%,
+    #ffc500 100%
+  );
+  /* height:90vh; */
+  /* width:100%;
+  margin:0 auto; */ 
+/* } */ 
+main{
+    background-image: linear-gradient(
+    43deg,
+    #4267b2 0%,
+    #ffffff 46%,
+    #ffcc70 100%
+  );
+}
+.mainDiv{
+    width:90%;
+    height:100%;
+    margin:1rem auto;
+    padding:1rem 1rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    background-color: white;
+}
+.contain{
+    width:40rem;
+    /* height:90vh; */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border-radius: 10px;
+    
+}
+.divImg{
+    height:60%;
+    width:100%;
+    border-radius: 10px;
+    position: relative;
+}
+.divImg img{
+    max-height:100%;
+    width:100%;
+    border-radius: 10px;
+}
+.profPic{
+  position: relative;
+    margin:0 auto;
+    width:25%;
+    height:auto;
+    background-color: grey;
+    border-radius: 50%;
+    transform:translateY(-50%);
+    overflow: hidden;
+   
+}
+.profPic img{
+    width:100%;
+    max-height:100%;
+ 
+    object-fit: cover;
+}
+.nameCont{
+  position:absolute;
+  top:130%;
+  left:50%;
+/* margin:0 auto; */  
+    /* width:100%; */
+    color:black;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transform:translateX(-50%);
+    white-space: nowrap;
+}
+.oneLiner{
+  font-style: italic;
+  transform: translateY(-50%); 
+  text-align: center;
+  font-size: 1rem;
+  margin:0.5rem auto;
+}
+.btnCont{
+  position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right:0%;
+    /* top:5%; */
+    margin:1rem 0;
+}
+.btn{
+    font-size: 1rem;
+    /* padding:0.5rem 1rem; */
+    margin-bottom: 0.2rem;
+    /* transform:translateX(225%); */
+    /* transform:translateY(-40%); */
+    padding: 0.15rem 0.4rem;
+  } 
+  .dtlsCont{
+    display: flex;
+
+    justify-content: space-between;
+    /* align-items: center; */
+      margin: 0.8rem auto;
+      border-radius: 10px;
+      padding:1rem 1rem;
+      width:90%;
+      height:auto;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .abtCont{
+    display: inline;
+      margin: 0 1.5rem;
+      border-radius: 10px;
+      padding:0.3rem 0.6rem;
+      width:90%;
+      height:auto;
+     font-weight: 600;
+     /* background-color: #8fabe4; */
+     background-color: black;
+     color: white;
+  }
+  .backdrop1{
+    position: fixed;
+    display:none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+   /* opacity: 0.5; */
+   margin: 0 auto;
+  
+  
+  }
+  .mainSection{
+    background-image: url("https://media.istockphoto.com/photos/portrait-of-happy-woman-in-the-park-picture-id1271198248?b=1&k=20&m=1271198248&s=170667a&w=0&h=jCLEpmhPHG1OBv1oAM8wYmhqt-EUjnk7r7EKHepDano=");
+  background-size: cover;
+    transition: all 800ms ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding:0;
+  
+  }
+  .mainSection:hover{
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url("https://media.istockphoto.com/photos/portrait-of-happy-woman-in-the-park-picture-id1271198248?b=1&k=20&m=1271198248&s=170667a&w=0&h=jCLEpmhPHG1OBv1oAM8wYmhqt-EUjnk7r7EKHepDano=");
+  background-size: cover;
+  }
+  
+  .form-group {
+    margin:0.5rem 1rem;
+  }
+  .modal1 {
+    position: fixed;
+   margin: 0.5rem auto;
+    /* top: 1vh; */
+    left: 5%;
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 30;
+    animation: slide-down 300ms ease-out forwards;
+    overflow: auto;
+  }
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .boringCont{
+  
+    display: flex;
+    flex-direction: column;
+    display: inline!important;
+  }
+  .coolCont{
+    display: inline!important;
+   
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .boringCont ul{
+    list-style: none;
+    padding:0;
+  }
+  .boringCont ul li{
+    background-color: grey;
+    color:black;
+    border: 1px solid white;
+    font-size: 0.8rem;
+    padding:0.5rem 0.8rem;
+    border-radius: 10px;
+  }
+  .boringCont ul li:nth-of-type(odd) {
+    background-color: grey;
+  }
+  .boringCont ul li:nth-of-type(even) {
+    background-color: rgb(235, 217, 217);
+  }
+  .coolCont ul{
+    list-style: none;
+    padding:0;
+  }
+  .coolCont ul li{
+    
+    color:black;
+    border: 1px solid rgb(37, 37, 37);
+    font-size: 0.8rem;
+    padding:0.5rem 0.8rem;
+    border-radius: 10px;
+  }
+  .coolCont ul li:nth-of-type(odd) {
+    background-color: rgb(247, 232, 103);
+  }
+  .coolCont ul li:nth-of-type(even) {
+    background-color: #6489d3;
+  }
+
+  @media (min-width: 768px) {
+    .mainDiv {
+      width: 60%;
+      padding:2rem 1rem;
+    }
+    .modal1{
+      /* top: 3vh; */
+      width:65%;
+      margin: 0.5rem auto;
+      left: 17%;
+    }
+    .profPic{
+      width:8rem;
+      height:8rem;
+    }
+  }
+  @media (min-width: 535px) and (max-width:860px) {
+    .nameCont {
+      top:140%;
+    }
+  }
+  @media (min-width: 860px) and (max-width:1060px) {
+    .nameCont {
+      top:130%;
+    }
+  }
+  @media (min-width: 1060px) {
+    .nameCont {
+      top:120%;
+    }
+  }
+  label{
+    font-weight: 600;
+  }
+  .btn-danger:hover{
+    background-color: rgb(189, 5, 5)!important;
+    color: white !important;
+  }
