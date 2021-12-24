@@ -123,7 +123,7 @@ app.use(errorController.get404);
 app.use((error, req, res, next) => {
 
   res.status(500);
-});
+});git 
 
 mongoose
   .connect(MONGODB_URI)
