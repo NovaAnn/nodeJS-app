@@ -13,9 +13,13 @@
            
             
          <% } else { %> 
+          <a class="dropdown-item">
+            <form action="/logout" method="post">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+              <button style="border: none;background-color: transparent;padding:0;" type="submit">Logout</button>
+            </form>
+          </a>
           
-          <a class="dropdown-item" href="/logout"
-            >Logout</a>
           
             <a class="dropdown-item" href="/admin/profile">
               Profile
