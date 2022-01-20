@@ -100,13 +100,14 @@ input{
 
 }
 .placeDate{
-  width:100%;
+  width:90%;
   color: rgb(124, 124, 230);
   background-color: white;
   padding:0.3rem 1rem;
   text-align: left;
   display: flex;
   align-items: center;
+  margin:0.2rem auto;
 }
 
 .placeDate h6{
@@ -153,6 +154,9 @@ input{
   }
   .product-item{
     margin: 0.5rem 2rem;
+  }
+  .placeDate{
+    margin:0;
   }
 }
 .searchHeader{

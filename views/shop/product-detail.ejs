@@ -60,7 +60,7 @@
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             
             <button class="btn btn-primary" style="margin-top: 1rem;background-color: #1e3c79;border-radius: 0%;" type="submit"  ><% if (editing) { %>UPDATE<% } else { %>Add Product<% } %></button>
-            <button "type="button" class="btn btn-danger" style="margin-top: 1rem;border-radius: 0%;background-color: transparent;color: red;border: none;font-weight: 600;" onclick="closeOverlay2(this)" >CLOSE</button>    
+            <button type="button" class="btn btn-danger" style="margin-top: 1rem;border-radius: 0%;background-color: transparent;color: red;border: none;font-weight: 600;" onclick="closeOverlay2(this)" >CLOSE</button>    
           </form>
              </div>
             </div>
@@ -76,9 +76,12 @@
                 <!-- <div style="text-align: center;margin:0 auto;background-color: rgb(85, 79, 79);width:100%;padding:1.5rem 0;">
                     <h5 style="font-family: 'Lato', sans-serif; font-weight: 500;color:white;" class="centered"><%= product.title %></h5>
                 </div> -->
-                <div class="placeDate"><div style="display: inline;font-style:italic;font-weight: 600;"><span style="font-weight: 600;font-style:none;"><i style="color:yellow;" class="fas fa-map-marker-alt"></i> </span><%= product.place %></div>
-                <h4 style="font-family: 'Lato', sans-serif; font-weight: 700;color:#4267b2;display: inline;margin:0 1rem;" class="centered"><%= product.title %></h4>
-                        <div style="display: inline;font-style:italic;font-weight: 600;"><span style="font-weight: 600;font-style:none;"><i class="far fa-calendar-alt" style="color:yellow;margin-right: 0.1rem;"></i> </span> <%=  product.date.toISOString().substring(8,10) %>/<%= product.date.toISOString().substring(5,7) %>/<%= product.date.toISOString().substring(0,4) %></div>
+                <div class="placeDate"><div style="display: flex;font-style:italic;font-weight: 600;flex-wrap: wrap;"><span style="font-weight: 600;font-style:none;"><i style="color:yellow;" class="fas fa-map-marker-alt"></i> </span>
+                <span ><%= product.place %></span></div>
+                <h4 style="font-family: 'Lato', sans-serif; font-weight: 700;color:#4267b2;display: inline;margin:0 0.4rem;" class="centered"><%= product.title %></h4>
+                        <div style="display: flex;font-style:italic;font-weight: 600;flex-wrap: wrap;justify-content: center;"><span style="font-weight: 600;font-style:none;"><i class="far fa-calendar-alt" style="color:yellow;margin-right: 0.5rem;"></i> </span>
+                            <span > <%=  product.date.toISOString().substring(8,10) %>/<%= product.date.toISOString().substring(5,7) %>/<%= product.date.toISOString().substring(0,4) %></span>
+                           </div>
                         </div>
             <div style="width:100%;" onclick="displayImage(this)"> <img style="width:100%;height: auto;" src="/<%= product.imageUrl %>" alt="<%= product.title %>"></div>
             <div class="secDivBord">

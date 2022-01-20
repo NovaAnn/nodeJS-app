@@ -1,36 +1,38 @@
 
 <header class="main-header">
+  <% if (!isAuthenticated) { %> 
+    <div id="side-menu-heading" style="font-weight: 600;font-size:1.2rem!important;margin:0 auto;" ><span><i style="color:yellow;margin-right: 0.5rem;"class="fas fa-book-open"></i></span>Welcome to FaceDiary</div>
+   <% } else { %> 
+  
+    <div id="side-menu-heading" style="font-weight: 600;font-size:1.2rem!important;" ><span><i style="color:yellow;margin-right: 0.5rem;"class="fas fa-book-open"></i></span>Welcome to FaceDiary</div>
   <div id="side-menu-toggle">
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-secondary dropdown-toggle" type="button" style="padding:0.3rem 0.5rem;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Menu
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
         
 
-        <% if (!isAuthenticated) { %> 
+       
           <a class="dropdown-item" href="/home">Home</a>
-           
-            
-         <% } else { %> 
+                  
+          
+            <a class="dropdown-item" href="/admin/profile">
+              Profile
+          </a>
           <a class="dropdown-item">
             <form action="/logout" method="post">
               <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
               <button style="border: none;background-color: transparent;padding:0;" type="submit">Logout</button>
             </form>
           </a>
-          
-          
-            <a class="dropdown-item" href="/admin/profile">
-              Profile
-          </a>
+
          
           <% } %> 
        
       </div>
     </div>
   </div>
-    
  
   <nav class="main-header__nav">
     <ul class="main-header__item-list" >
@@ -68,7 +70,7 @@
       <!-- <% } %> -->
     </ul>
     <div style="font-weight: 600;font-size:1.3rem!important;" ><span><i style="color:yellow;margin-right: 0.5rem;"class="fas fa-book-open"></i></span>Welcome to FaceDiary</div>
-    <ul class="main-header__item-list" style="max-width: 25rem;">
+    <ul class="main-header__item-list" style="max-width: 25rem;height: 100%;">
       <% if (!isAuthenticated) { %> 
       
      <% } else { %> 
@@ -80,7 +82,7 @@
       </li>
       <li class="main-header__item">
         <a href="/admin/profile">
-          <i style="color:black;font-size: 2rem;" class="fas fa-user-circle"></i>
+          <i class="fas fa-user-circle" style="color:black;width:100%; margin:0;" ></i>
         <!-- <img src="https://cdn-icons-png.flaticon.com/128/1621/1621561.png"> -->
       </a>
       </li>
